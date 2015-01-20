@@ -1,0 +1,180 @@
+package easybudda.twocoloredimages;
+ 
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.*;
+ 
+public class TwoColoredPanels {
+    // constants
+    public static final Color DEFAULT_COLOR = Color.WHITE;
+    public static final int DEFAULT_PANEL_WIDTH = 200;
+    public static final int DEFAULT_PANEL_HEIGHT = 400;
+    
+    // dialog elements
+    private JPanel controlPanel;
+    private JLabel redLabel;
+    private JLabel greenLabel;
+    private JLabel blueLabel;
+    private JSlider redSlider;
+    private JSlider greenSlider;
+    private JSlider blueSlider;
+    private JCheckBox leftCB;
+    private JCheckBox rightCB;
+    
+    // main window
+    private JFrame mainFrame;
+    private JPanel leftPanel;
+    private JPanel rightPanel;
+    
+    // internal functions
+    private void setPanelsColor() {
+        Color color = new Color(redSlider.getValue() << 16 | greenSlider.getValue() << 8 | blueSlider.getValue());
+        if ( leftCB.isSelected() )
+            leftPanel.setBackground(color);
+        if ( rightCB.isSelected() )
+            rightPanel.setBackground(color);
+    }
+    
+    private void resetPanels() {
+        leftPanel.setBackground(DEFAULT_COLOR);
+        rightPanel.setBackground(DEFAULT_COLOR);
+        redSlider.setValue(255);
+        greenSlider.setValue(255);
+        blueSlider.setValue(255);
+        redLabel.setText("255");
+        greenLabel.setText("255");
+        blueLabel.setText("255");
+    }
+    
+    TwoColoredPanels() {
+        // create dialog
+        GridLayout gridLayout = new GridLayout(3, 3);
+        JPanel colorsPanel = new JPanel(gridLayout);
+        
+        colorsPanel.add(new JLabel("Red:"));
+        redLabel = new JLabel("255");
+        colorsPanel.add(redLabel);
+        redSlider = new JSlider(JSlider.HORIZONTAL, 0, 255, 255);
+        redSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent rce) {
+                redLabel.setText(String.valueOf(redSlider.getValue()));
+            }
+        });
+        colorsPanel.add(redSlider);
+        
+        colorsPanel.add(new JLabel("Green:"));
+        greenLabel = new JLabel("255");
+        colorsPanel.add(greenLabel);
+        greenSlider = new JSlider(JSlider.HORIZONTAL, 0, 255, 255);
+        greenSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent gce) {
+                greenLabel.setText(String.valueOf(greenSlider.getValue()));
+            }
+        });
+        colorsPanel.add(greenSlider);
+        
+        colorsPanel.add(new JLabel("Blue:"));
+        blueLabel = new JLabel("255");
+        colorsPanel.add(blueLabel);
+        blueSlider = new JSlider(JSlider.HORIZONTAL, 0, 255, 255);
+        blueSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent bce) {
+                blueLabel.setText(String.valueOf(blueSlider.getValue()));
+            }
+        });
+        colorsPanel.add(blueSlider);
+        
+        Box cbsBox = Box.createHorizontalBox();
+        leftCB = new JCheckBox("Left");
+        cbsBox.add(leftCB);
+        cbsBox.add(Box.createHorizontalGlue());
+        rightCB = new JCheckBox("Right");
+        cbsBox.add(rightCB);
+        
+        Box controlBox = Box.createVerticalBox();
+        controlBox.add(colorsPanel);
+        controlBox.add(cbsBox);
+        
+        controlPanel = new JPanel(new BorderLayout());
+        controlPanel.add(controlBox, BorderLayout.CENTER);
+        
+        // main window with menu
+        JMenuBar mainMB = new JMenuBar();
+        
+        JMenu fileMenu = new JMenu("File");
+        JMenu optsMenu = new JMenu("Options");
+        JMenu helpMenu = new JMenu("Help");
+        mainMB.add(fileMenu);
+        mainMB.add(optsMenu);
+        mainMB.add(helpMenu);
+        
+        JMenuItem exitMI = new JMenuItem("Exit");
+        exitMI.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        fileMenu.add(exitMI);
+        
+        JMenuItem setcolorMI = new JMenuItem("Set color...");
+        setcolorMI.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent scae) {
+                if ( JOptionPane.showOptionDialog(mainFrame, controlPanel, "Set color", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null) == JOptionPane.OK_OPTION )
+                    setPanelsColor();
+            }
+        });
+        optsMenu.add(setcolorMI);
+        
+        JMenuItem resetMI = new JMenuItem("Reset panels");
+        resetMI.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent rae) {
+                resetPanels();
+            }
+        });
+        optsMenu.add(resetMI);
+        
+        JMenuItem aboutMI = new JMenuItem("About...");
+        aboutMI.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent aae) {
+                JOptionPane.showMessageDialog(mainFrame, "<html><h2>Izya Budman's prodaction</h2>&copy;YzyaBudman 2013</html>");
+            }
+        });
+        helpMenu.add(aboutMI);
+        
+        leftPanel = new JPanel();
+        leftPanel.setOpaque(true);
+        leftPanel.setBackground(DEFAULT_COLOR);
+        leftPanel.setPreferredSize(new Dimension(DEFAULT_PANEL_WIDTH, DEFAULT_PANEL_HEIGHT));
+        
+        rightPanel = new JPanel();
+        rightPanel.setOpaque(true);
+        rightPanel.setBackground(DEFAULT_COLOR);
+        rightPanel.setPreferredSize(new Dimension(DEFAULT_PANEL_WIDTH, DEFAULT_PANEL_HEIGHT));
+        
+        mainFrame = new JFrame("Color panels");
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setJMenuBar(mainMB);
+        mainFrame.add(leftPanel, BorderLayout.WEST);
+        mainFrame.add(rightPanel, BorderLayout.EAST);
+        
+        mainFrame.pack();
+        mainFrame.setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new TwoColoredPanels();
+            }
+        });
+    }
+}
