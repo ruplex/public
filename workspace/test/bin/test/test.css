@@ -1,0 +1,6 @@
+.menu-bar {
+	-fx-background-color: black;
+}
+.menu-bar .label {
+	-fx-text-fill: #ff8a00;
+}
