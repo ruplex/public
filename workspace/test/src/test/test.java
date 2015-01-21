@@ -26,7 +26,7 @@ public class test extends Application {
 		
 		stage.setScene(scene);
 		
-		stage.show(); //dfdfdfdfghfh
+		stage.show(); //Ку ку ёпта
 		
 	}
 
