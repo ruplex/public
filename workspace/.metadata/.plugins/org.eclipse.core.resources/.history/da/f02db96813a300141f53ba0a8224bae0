@@ -24,7 +24,7 @@ public class test extends Application {
 		
 	}
 	
-	public void load_path_interface(String path, String title) throws Exception {
+	public void load_path_interface(String path, String title = "Hичего") throws Exception {
 
 		Stage stage = new Stage();
 		
@@ -33,22 +33,6 @@ public class test extends Application {
 		Scene scene = new Scene(root);
 		
 		stage.setTitle(title);
-		
-		stage.setScene(scene);
-		
-		stage.show();
-		
-	}
-	
-	public void load_path_interface(String path) throws Exception {
-
-		Stage stage = new Stage();
-		
-		Parent root = FXMLLoader.load(getClass().getResource(path));
-		
-		Scene scene = new Scene(root);
-		
-		stage.setTitle("Ничего");
 		
 		stage.setScene(scene);
 		

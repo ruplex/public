@@ -18,25 +18,9 @@ public class test extends Application {
 
 	public void start(Stage stage) throws Exception {
 	
-		load_path_interface("/test/tmp/Основной_интерфейс.fxml", "Заголовок");
+		load_path_interface("/test/tmp/Основной_интерфейс.fxml");
 		
 		load_path_interface("/test/tmp/Добавления_пунтка.fxml");
-		
-	}
-	
-	public void load_path_interface(String path, String title) throws Exception {
-
-		Stage stage = new Stage();
-		
-		Parent root = FXMLLoader.load(getClass().getResource(path));
-		
-		Scene scene = new Scene(root);
-		
-		stage.setTitle(title);
-		
-		stage.setScene(scene);
-		
-		stage.show();
 		
 	}
 	
@@ -48,7 +32,7 @@ public class test extends Application {
 		
 		Scene scene = new Scene(root);
 		
-		stage.setTitle("Ничего");
+		stage.setTitle("Заголовок");
 		
 		stage.setScene(scene);
 		

@@ -10,29 +10,19 @@ import javafx.stage.Stage;
 
 public class test extends Application {
  
+	Label origin; 
+	
 	public static void main(String[] args) {
   
 		launch(args);
-		
+  
 	}
 
 	public void start(Stage stage) throws Exception {
 	
-		load_path_interface("/test/tmp/Основной_интерфейс.fxml", "Заголовок");
-		
-		load_path_interface("/test/tmp/Добавления_пунтка.fxml");
-		
-	}
-	
-	public void load_path_interface(String path, String title) throws Exception {
-
-		Stage stage = new Stage();
-		
-		Parent root = FXMLLoader.load(getClass().getResource(path));
+		Parent root = FXMLLoader.load(getClass().getResource("/test/tmp/Основной_интерфейс.fxml"));
 		
 		Scene scene = new Scene(root);
-		
-		stage.setTitle(title);
 		
 		stage.setScene(scene);
 		
@@ -44,11 +34,9 @@ public class test extends Application {
 
 		Stage stage = new Stage();
 		
-		Parent root = FXMLLoader.load(getClass().getResource(path));
+		Parent root = FXMLLoader.load(getClass().getResource("/test/tmp/Основной_интерфейс.fxml"));
 		
 		Scene scene = new Scene(root);
-		
-		stage.setTitle("Ничего");
 		
 		stage.setScene(scene);
 		
