@@ -9,7 +9,7 @@ import javafx.stage.Stage;
  
 public class Controller extends Main {
     @FXML
-    public void onClickMethod() throws Exception {
+    public void onClickMethod(){
   	
     	load_path_interface("/test/JavaFX/template/header/add_paragraphs.fxml");
     	
