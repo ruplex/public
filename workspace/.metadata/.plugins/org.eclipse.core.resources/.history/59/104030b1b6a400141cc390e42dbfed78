@@ -22,7 +22,7 @@ public class Main extends Application {
 
 	public void start(Stage stage) throws Exception {
 	
-		load_path_interface("/test/JavaFX/template/main.fxml", "Заголовок");
+		load_path_interface("/test/tmp/Основной_интерфейс.fxml", "Заголовок");
 		
 	}
 	
