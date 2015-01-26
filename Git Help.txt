@@ -29,3 +29,22 @@ git help - помощь;
 git add --all
 git commit -m ''
 git pull
+
+Работа с ветками:
+
+	Добавление:
+	git checkout -b имя_ветки
+	git push origin имя_ветки
+
+	Слияние:
+	git merge origin/имя_ветки
+	git pull origin имя_ветки
+	
+	Удаление:
+	git branch -d имя_ветки
+	git push origin --delete имя_ветки
+	
+	Откат
+	git reset --hard ид_ветки
+	git reset --hard origin/имя_ветки
+	git push -f origin имя_ветки
