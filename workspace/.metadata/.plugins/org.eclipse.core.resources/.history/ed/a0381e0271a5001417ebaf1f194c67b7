@@ -16,12 +16,12 @@
               <MenuItem mnemonicParsing="false" text="Сохранить" />
                   <MenuItem mnemonicParsing="false" text="Сохранить как" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#close" text="Выход" />
+                  <MenuItem mnemonicParsing="false" onAction="close" text="Выход" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Редактировать">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onClickMethod" text="Добавить" />
+                  <MenuItem mnemonicParsing="false" text="Добавить" />
                   <SeparatorMenuItem mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" text="Отменить" />
                   <MenuItem mnemonicParsing="false" text="Повторить" />

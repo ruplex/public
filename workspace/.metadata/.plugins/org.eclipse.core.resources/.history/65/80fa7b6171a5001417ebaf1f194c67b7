@@ -1,7 +1,5 @@
 package test;
 
-import java.awt.event.WindowAdapter;
-
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,8 +15,9 @@ public class Controller extends Main {
     	
     }
     
-    public void close(final WindowEvent event) {
+    public void close(Stage stage) {
     	
+    	stage.close();
     	
     }
  
