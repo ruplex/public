@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
  
+	public Stage stage = new Stage(); 
+	
+	public String test = new String("проверка");
+	
 	public static void main(String[] args) {
   
 		launch(args);
@@ -28,7 +32,7 @@ public class Main extends Application {
 	
 	public void load_path_interface(String path, String title) throws Exception {
 
-		Stage stage = new Stage();
+		//Stage stage = new Stage();
 		
 		Parent root = FXMLLoader.load(getClass().getResource(path));
 		
@@ -40,11 +44,13 @@ public class Main extends Application {
 		
 		stage.show();
 		
+		this.test = "изменили"; 
+		
 	}
 	
 	public void load_path_interface(String path) throws Exception {
 
-		Stage stage = new Stage();
+		//Stage stage = new Stage();
 		
 		Parent root = FXMLLoader.load(getClass().getResource(path));
 		
