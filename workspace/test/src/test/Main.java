@@ -5,14 +5,19 @@ import java.awt.Container;
 import javax.swing.JButton;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	
+	@FXML
+	private Text data_desc = new Text();
  
 	public Stage stage = new Stage(); 
 	
@@ -27,6 +32,8 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception {
 	
 		load_path_interface("/test/JavaFX/template/main.fxml", "Заголовок");
+		
+		out_text(0, "test");
 		
 	}
 	
@@ -44,7 +51,7 @@ public class Main extends Application {
 		
 		stage.show();
 		
-		this.test = "изменили"; 
+		//this.test = "изменили"; 
 		
 	}
 	
@@ -62,6 +69,14 @@ public class Main extends Application {
 		
 		stage.show();
 
+	}
+	
+	public boolean out_text(int id, String text) {
+		
+		data_desc.setText("Поле сообщения");
+		
+		return true;
+		
 	}
 		
 }

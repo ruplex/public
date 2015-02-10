@@ -8,15 +8,37 @@
 		<item value="718" key="dialogHeight"/>
 		<item value="960" key="dialogWidth"/>
 		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
 		</list>
 		<list key="orderedElements">
+			<item value="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.datatools.connectivity.DataSourceExplorerNavigator)"/>
+			<item value="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"/>
+			<item value="org.eclipse.datatools.connectivity.oda.design.ui.preferences.OpenDataAccessPage"/>
 		</list>
 		<list key="orderedProviders">
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.preferences"/>
 		</list>
 		<list key="textArray">
+			<item value="data source explorer"/>
+			<item value="data "/>
+			<item value="open "/>
 		</list>
 	</section>
 	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.NewClassCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+		</list>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item value="706" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="651" key="DIALOG_HEIGHT"/>
+		<item value="-33" key="DIALOG_X_ORIGIN"/>
+		<item value="-272" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="ShowViewDialog">
 		<item value="311" key="DIALOG_WIDTH"/>

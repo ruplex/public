@@ -1,0 +1,10 @@
+
+
+public class basedate {
+	
+	public static void main(String[] arg) throws Exception {
+
+		
+		
+	}
+}
