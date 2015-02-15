@@ -1,6 +1,11 @@
 package test;
 
 import java.awt.Container;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 
@@ -13,6 +18,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.sql.*;
+
 
 public class Main extends Application {
 	
@@ -33,8 +41,6 @@ public class Main extends Application {
 	
 		load_path_interface("/test/JavaFX/template/main.fxml", "Заголовок");
 		
-		out_text(0, "test");
-		
 	}
 	
 	public void load_path_interface(String path, String title) throws Exception {
@@ -50,8 +56,7 @@ public class Main extends Application {
 		stage.setScene(scene);
 		
 		stage.show();
-		
-		//this.test = "изменили"; 
+		 
 		
 	}
 	
@@ -71,12 +76,41 @@ public class Main extends Application {
 
 	}
 	
-	public boolean out_text(int id, String text) {
+	public String[] get_data_in_plan(int id) throws Exception {
 		
-		data_desc.setText("Поле сообщения");
+		Class.forName("org.sqlite.JDBC");
 		
-		return true;
+		Connection ruplex_connect = DriverManager.getConnection("jdbc:sqlite:src/test/database/data.db");		
 		
+		Statement ruplex_st = ruplex_connect.createStatement();
+		
+		ruplex_st.executeUpdate("SELECT * FROM `plan`;");
+		
+		ResultSet ruplex_rs = ruplex_st.executeQuery("SELECT * FROM `plan` WHERE `id` = " + id + ";");
+		
+		if(ruplex_rs.next()) {
+			
+			String[] data = new String[4];
+			
+			data[0] = ruplex_rs.getString(1);
+			data[1] = ruplex_rs.getString(2);
+			data[2] = ruplex_rs.getString(3);
+			data[3] = ruplex_rs.getString(4);
+			
+			ruplex_rs.close();
+			ruplex_st.close();
+			
+			return data;
+			
+		} else {
+			
+			ruplex_rs.close();
+			ruplex_st.close();
+			
+			return new String[0];
+		
+		}
+				
 	}
-		
+
 }

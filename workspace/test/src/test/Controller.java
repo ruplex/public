@@ -10,17 +10,42 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
- 
+
+import java.sql.*;
+
 public class Controller extends Main {
 	
     @FXML
-    private AnchorPane pane; 
+    private AnchorPane pane;
+
+    @FXML
+    private Text data_title;
+    
+    @FXML
     private Text data_desc;
+    
+    @FXML
+    public void initialize() throws Exception {
+    	
+    	String[] data = get_data_in_plan(2);
+    	
+    	main_paragraph(data);
+
+    }
+    
+    public void main_paragraph(String[] data) {
+    	
+    	data_title.setText(data[0]);
+    	
+    	data_desc.setText(data[2]);
+    	
+    }
     
     public void onClickMethod() throws Exception {
   	
-    	//load_path_interface("/test/JavaFX/template/header/add_paragraphs.fxml");
-    	data_desc.setText("Поле сообщения");
+    	load_path_interface("/test/JavaFX/template/header/add_paragraphs.fxml");
+    
+    	//get_data_in_plan(1);
     	
     }
     
@@ -31,6 +56,6 @@ public class Controller extends Main {
     	stage.close();
     
     }
-     
+   
    
 }
