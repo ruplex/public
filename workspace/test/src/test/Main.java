@@ -14,13 +14,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.sql.*;
 
+import test.modules.notice.Error;
 
 public class Main extends Application {
 	
@@ -111,6 +110,18 @@ public class Main extends Application {
 		
 		}
 				
+	}
+	
+	public void open_notice(String title, String desc) throws Exception {
+		
+		Error _class = new Error();
+		
+		_class.title = title;
+		
+		_class.desc = desc;
+		
+		_class.load_path_interface("/test/JavaFX/template/notice/error.fxml", title);
+		
 	}
 
 }

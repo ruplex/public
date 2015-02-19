@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.modules.notice.error">
+   <children>
+      <Text layoutX="13.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ошибка" wrappingWidth="374.13671875" />
+      <Text layoutX="13.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ошибка" textAlignment="CENTER" wrappingWidth="374.13671875">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Button layoutX="285.0" layoutY="61.0" mnemonicParsing="false" text="Нет" />
+      <Button layoutX="328.0" layoutY="61.0" mnemonicParsing="false" text="Отмена" />
+      <Button layoutX="247.0" layoutY="61.0" mnemonicParsing="false" text="Да" />
+   </children>
+</AnchorPane>
